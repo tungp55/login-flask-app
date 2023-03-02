@@ -20,6 +20,11 @@ def create_app():
     db.app = app
     db.init_app(app)
     JWTManager(app)
+    
+    @app.route('/')
+    def home():
+        return 'Home Page Route - nice work Andrew!!!'
+    
     app.register_blueprint(auth)
 
     app.register_blueprint(users)
