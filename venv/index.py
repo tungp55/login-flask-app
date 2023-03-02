@@ -4,6 +4,7 @@ from flask_jwt_extended import JWTManager
 from src.model import db
 from src.users import users
 from src.auth import auth
+from src.work import work
 from src.constants.http_status_codes import HTTP_404_NOT_FOUND, HTTP_500_INTERNAL_SERVER_ERROR
 import os
 
@@ -25,7 +26,7 @@ def home():
    return 'Hello !!!'
     
 app.register_blueprint(auth)
-
+app.register_blueprint(work)
 app.register_blueprint(users)
 
 
