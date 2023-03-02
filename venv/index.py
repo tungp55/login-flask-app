@@ -1,3 +1,4 @@
+from datetime import timedelta
 from flask import Flask
 from flask.json import jsonify
 from flask_jwt_extended import JWTManager
@@ -17,6 +18,7 @@ app.config.from_mapping(
     SQLALCHEMY_DATABASE_TRACK_MODIFICATIONS=False,
     JWT_SECRET_KEY= os.environ.get("JWT_SECRET_KEY")
 )
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
 db.app = app
 db.init_app(app)
 JWTManager(app)
