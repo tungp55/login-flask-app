@@ -45,6 +45,8 @@ def login():
         is_pass_correct = check_password_hash(user.password, password)
         if is_pass_correct:
             access_token = create_access_token(identity=user.id)
+            print(access_token)
+            print(user.id)
             return jsonify({
                 'user':{
                     'access_token': access_token,

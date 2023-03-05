@@ -8,10 +8,10 @@ from src.auth import auth
 from src.work import work
 from src.constants.http_status_codes import HTTP_404_NOT_FOUND, HTTP_500_INTERNAL_SERVER_ERROR
 import os
-
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.config.from_mapping(
     SECRET_KEY=os.environ.get("SECRET_KEY"),
     SQLALCHEMY_DATABASE_URI=os.environ.get("SQLALCHEMY_DB_URI"),
